@@ -6,7 +6,7 @@ connectionSpecification:
   required:
     - apikey
   properties:
-    api_key:
+    apikey:
       type: string
       description: Jurnal API key (for more information see <a
         href="https://api-jurnal.api-docs.io/v1/frequently-asked-question/list-of-faqs">here</a>)

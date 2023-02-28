@@ -2281,3 +2281,10 @@
   documentationUrl: https://docs.airbyte.io/integrations/sources/braze
   sourceType: api
   releaseStage: alpha
+- name: Jurnal
+  sourceDefinitionId: 2efd19ba-ff7c-4748-bf7f-f785f44302e9
+  dockerRepository: airbyte/source-jurnal
+  dockerImageTag: 0.1.0
+  documentationUrl: https://docs.airbyte.io/integrations/sources/jurnal
+  sourceType: api
+  releaseStage: alpha
