@@ -21,6 +21,7 @@ from requests.exceptions import HTTPError
 
 logger = logging.getLogger("airbyte")
 
+
 class JurnalStream(HttpStream, ABC):
     url_base = "https://api.jurnal.id/core/api/v1/"
 
@@ -28,20 +29,8 @@ class JurnalStream(HttpStream, ABC):
 
     def __init__(self, config: Mapping[str, Any], **kwargs):
         super().__init__()
-        self.apikey = config['apikey']
-        self.schema_map = self.generate_schema_map()
+        self.apikey = config["apikey"]
 
-    def generate_schema_map(self) -> Mapping[str, Any]:
-        schemas_dir = os.path.join(os.getcwd(), "source_jurnal/schemas")
-        schema_file_path_template = os.path.join(schemas_dir , "*.json")
-        schemas = {}
-        for schema_file_path in glob(schema_file_path_template):
-            filename = Path(schema_file_path).stem
-            schema_file = open(schema_file_path)
-            schema = json.load(schema_file)
-            schemas[filename] = schema
-        return schemas
-    
     def get_schema_property_keys(self, schema) -> List[str]:
         return list(schema["properties"].keys())
 
@@ -56,26 +45,27 @@ class JurnalStream(HttpStream, ABC):
     def request_headers(
         self, stream_state: Mapping[str, Any], stream_slice: Mapping[str, Any] = None, next_page_token: Mapping[str, Any] = None
     ) -> Mapping[str, Any]:
-        return {'apikey': self.apikey}
-        
+        return {"apikey": self.apikey}
+
     def request_params(
         self, stream_state: Mapping[str, Any], stream_slice: Mapping[str, any] = None, next_page_token: Mapping[str, Any] = None
     ) -> MutableMapping[str, Any]:
         return {}
-    
-    def path (
+
+    def path(
         self, stream_state: Mapping[str, Any] = None, stream_slice: Mapping[str, Any] = None, next_page_token: Mapping[str, Any] = None
     ) -> str:
         return ""
-    
+
     def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
         return None
-    
+
     def next_page_token(self, response: requests.Response) -> Optional[Mapping[str, Any]]:
         return None
 
     def check_connection(self, logger, config) -> Tuple[bool, any]:
         return True, None
+
 
 class Accounts(JurnalStream):
     primary_key = "id"
@@ -88,12 +78,13 @@ class Accounts(JurnalStream):
         self, stream_state: Mapping[str, Any] = None, stream_slice: Mapping[str, Any] = None, next_page_token: Mapping[str, Any] = None
     ) -> str:
         return "accounts"
-    
+
     def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
         accounts = response.json(parse_float=decimal.Decimal)["accounts"]
         accounts = self.remove_redundant_properties(accounts)
         for account in accounts:
             yield account
+
 
 class SourceJurnal(AbstractSource):
     def check_connection(self, logger, config) -> Tuple[bool, any]:
@@ -101,4 +92,3 @@ class SourceJurnal(AbstractSource):
 
     def streams(self, config: Mapping[str, Any]) -> List[Stream]:
         return [Accounts(config=config)]
-
