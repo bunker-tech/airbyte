@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": ["null", "integer"]
+    },
+    "title": {
+      "type": ["null", "string"]
+    },
+    "first_name": {
+      "type": ["null", "string"]
+    },
+    "middle_name": {
+      "type": ["null", "string"]
+    },
+    "last_name": {
+      "type": ["null", "string"]
+    },
+    "display_name": {
+      "type": ["null", "string"]
+    },
+    "billing_address": {
+      "type": ["null", "string"]
+    },
+    "address": {
+      "type": ["null", "string"]
+    },
+    "email": {
+      "type": ["null", "string"]
+    },
+    "mobile": {
+      "type": ["null", "string"]
+    },
+    "phone": {
+      "type": ["null", "string"]
+    }
+  }
+}

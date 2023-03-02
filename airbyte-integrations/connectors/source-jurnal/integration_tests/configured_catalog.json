@@ -2,6 +2,16 @@
   "streams": [
     {
       "stream": {
+        "name": "current_active_company",
+        "json_schema": {},
+        "supported_sync_modes": ["full_refresh"],
+        "source_defined_primary_key": []
+      },
+      "sync_mode": "full_refresh",
+      "destination_sync_mode": "overwrite"
+    },
+    {
+      "stream": {
         "name": "accounts",
         "json_schema": {},
         "supported_sync_modes": ["full_refresh"],
@@ -13,6 +23,16 @@
     {
       "stream": {
         "name": "journal_entries",
+        "json_schema": {},
+        "supported_sync_modes": ["full_refresh"],
+        "source_defined_primary_key": [["id"]]
+      },
+      "sync_mode": "full_refresh",
+      "destination_sync_mode": "overwrite"
+    },
+    {
+      "stream": {
+        "name": "vendors",
         "json_schema": {},
         "supported_sync_modes": ["full_refresh"],
         "source_defined_primary_key": [["id"]]

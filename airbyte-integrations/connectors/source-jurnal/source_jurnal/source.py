@@ -15,4 +15,4 @@ class SourceJurnal(AbstractSource):
         return JurnalStream(config=config).check_connection(logger, config)
 
     def streams(self, config: Mapping[str, Any]) -> List[Stream]:
-        return [Accounts(config=config), JournalEntries(config=config)]
+        return [Accounts(config=config), JournalEntries(config=config), Vendors(config=config)]
