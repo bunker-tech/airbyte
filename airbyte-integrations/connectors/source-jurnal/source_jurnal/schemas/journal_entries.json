@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": ["null", "integer"]
+    },
+    "custom_id": {
+      "type": ["null", "string"]
+    },
+    "transaction_no": {
+      "type": ["null", "string"]
+    },
+    "memo": {
+      "type": ["null", "string"]
+    },
+    "transaction_date": {
+      "type": ["null", "string"]
+    },
+    "transaction_status": {
+      "type": ["null", "object"],
+      "properties": {
+        "id": {
+          "type": ["null", "integer"]
+        },
+        "name": {
+          "type": ["null", "string"]
+        },
+        "name_bahasa": {
+          "type": ["null", "string"]
+        }
+      }
+    },
+    "transaction_account_lines": {
+      "type": ["null", "array"],
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": ["null", "integer"]
+          },
+          "description": {
+            "type": ["null", "string"]
+          },
+          "debit": {
+            "type": ["null", "number"]
+          },
+          "credit": {
+            "type": ["null", "number"]
+          },
+          "credit_currency_format": {
+            "type": ["null", "string"]
+          },
+          "debit_currency_format": {
+            "type": ["null", "string"]
+          },
+          "account": {
+            "type": ["null", "object"],
+            "properties": {
+              "id": {
+                "type": ["null", "integer"]
+              },
+              "name": {
+                "type": ["null", "string"]
+              },
+              "number": {
+                "type": ["null", "string"]
+              },
+              "category": {
+                "type": ["null", "object"],
+                "properties": {
+                  "id": {
+                    "type": ["null", "integer"]
+                  },
+                  "name": {
+                    "type": ["null", "string"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "total_debit": {
+      "type": ["null", "number"]
+    },
+    "total_credit": {
+      "type": ["null", "number"]
+    },
+    "total_debit_currency_format": {
+      "type": ["null", "string"]
+    },
+    "total_credit_currency_format": {
+      "type": ["null", "string"]
+    },
+    "attachments": {
+      "type": ["null", "array"],
+      "items": {
+        "type": "object"
+      }
+    },
+    "tags": {
+      "type": ["null"]
+    },
+    "tags_string": {
+      "type": ["null", "string"]
+    },
+    "locked": {
+      "type": ["null", "boolean"]
+    },
+    "created_at": {
+      "type": ["null", "string"]
+    },
+    "updated_at": {
+      "type": ["null", "string"]
+    },
+    "currency_code": {
+      "type": ["null", "string"]
+    },
+    "currency_rate": {
+      "type": ["null", "number"]
+    }
+  }
+}

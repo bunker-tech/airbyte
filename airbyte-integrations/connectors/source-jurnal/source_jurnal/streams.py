@@ -25,6 +25,7 @@ class JurnalStream(HttpStream, ABC):
     def remove_redundant_properties(self, records: Iterable[Mapping[str, Any]]) -> Iterable[Mapping[str, Any]]:
         filtered_records = []
         schema = super().get_json_schema()
+        print("\n\n\n\n\n\n", schema)
         schema_property_keys = self.get_schema_property_keys(schema)
         for record in records:
             filtered_record = {key: record[key] for key in schema_property_keys}
@@ -73,3 +74,22 @@ class Accounts(JurnalStream):
         accounts = self.remove_redundant_properties(accounts)
         for account in accounts:
             yield account
+
+
+class JournalEntries(JurnalStream):
+    primary_key = "id"
+
+    def __init__(self, config: Mapping[str, Any], **kwargs):
+        super().__init__(config=config, **kwargs)
+        self.schema_name = __class__.__name__.lower()
+
+    def path(
+        self, stream_state: Mapping[str, Any] = None, stream_slice: Mapping[str, Any] = None, next_page_token: Mapping[str, Any] = None
+    ) -> str:
+        return "journal_entries"
+
+    def parse_response(self, response: requests.Response, **kwargs) -> Iterable[Mapping]:
+        journal_entries = response.json(parse_float=decimal.Decimal)["journal_entries"]
+        journal_entries = self.remove_redundant_properties(journal_entries)
+        for journal_entry in journal_entries:
+            yield journal_entry
