@@ -25,7 +25,6 @@ class JurnalStream(HttpStream, ABC):
     def remove_redundant_properties(self, records: Iterable[Mapping[str, Any]]) -> Iterable[Mapping[str, Any]]:
         filtered_records = []
         schema = super().get_json_schema()
-        print("\n\n\n\n\n\n", schema)
         schema_property_keys = self.get_schema_property_keys(schema)
         for record in records:
             filtered_record = {key: record[key] for key in schema_property_keys}
