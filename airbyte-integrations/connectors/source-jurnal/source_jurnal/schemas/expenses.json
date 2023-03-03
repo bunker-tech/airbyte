@@ -1,0 +1,307 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": ["null", "integer"]
+    },
+    "transaction_no": {
+      "type": ["null", "string"]
+    },
+    "token": {
+      "type": ["null", "string"]
+    },
+    "email": {
+      "type": ["null", "string"]
+    },
+    "address": {
+      "type": ["null", "string"]
+    },
+    "memo": {
+      "type": ["null", "string"]
+    },
+    "remaining": {
+      "type": ["null", "string"]
+    },
+    "original_amount": {
+      "type": ["null", "string"]
+    },
+    "created_at": {
+      "type": ["null", "string"]
+    },
+    "updated_at": {
+      "type": ["null", "string"]
+    },
+    "witholding_value": {
+      "type": ["null", "string"]
+    },
+    "witholding_type": {
+      "type": ["null", "string"]
+    },
+    "custom_id": {
+      "type": ["null", "string"]
+    },
+    "tax_amount": {
+      "type": ["null", "number"]
+    },
+    "deleted_at": {
+      "type": ["null", "string"]
+    },
+    "deletable": {
+      "type": ["null", "boolean"]
+    },
+    "editable": {
+      "type": ["null", "boolean"]
+    },
+    "is_payable": {
+      "type": ["null", "boolean"]
+    },
+    "transaction_date": {
+      "type": ["null", "string"]
+    },
+    "due_date": {
+      "type": ["null", "string"]
+    },
+    "balance_due_currency_format": {
+      "type": ["null", "string"]
+    },
+    "witholding_amount_currency_format": {
+      "type": ["null", "string"]
+    },
+    "witholding_amount": {
+      "type": ["null", "number"]
+    },
+    "remaining_currency_format": {
+      "type": ["null", "string"]
+    },
+    "subtotal": {
+      "type": ["null", "number"]
+    },
+    "subtotal_currency_format": {
+      "type": ["null", "string"]
+    },
+    "transaction_type": {
+      "type": ["null", "object"],
+      "properties": {
+        "id": {
+          "type": ["null", "integer"]
+        },
+        "name": {
+          "type": ["null", "string"]
+        }
+      }
+    },
+    "amount_receive": {
+      "type": ["null", "number"]
+    },
+    "amount_receive_currency_format": {
+      "type": ["null", "string"]
+    },
+    "payments": {
+      "type": ["null", "array"],
+      "items": {
+        "type": "object"
+      }
+    },
+    "transaction_status": {
+      "type": ["null", "object"],
+      "properties": {
+        "id": {
+          "type": ["null", "integer"]
+        },
+        "name": {
+          "type": ["null", "string"]
+        },
+        "name_bahasa": {
+          "type": ["null", "string"]
+        }
+      }
+    },
+    "payment_method": {
+      "type": ["null", "object"],
+      "properties": {
+        "id": {
+          "type": ["null", "integer"]
+        },
+        "name": {
+          "type": ["null", "string"]
+        }
+      }
+    },
+    "term": {
+      "type": ["null", "object"],
+      "properties": {
+        "id": {
+          "type": ["null", "integer"]
+        },
+        "name": {
+          "type": ["null", "string"]
+        },
+        "longetivity": {
+          "type": ["null", "integer"]
+        }
+      }
+    },
+    "transaction_account_lines_attributes": {
+      "type": ["null", "array"],
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": ["null", "integer"]
+          },
+          "description": {
+            "type": ["null", "string"]
+          },
+          "debit": {
+            "type": ["null", "string"]
+          },
+          "debit_currency_format": {
+            "type": ["null", "string"]
+          },
+          "account": {
+            "type": ["null", "object"],
+            "properties": {
+              "id": {
+                "type": ["null", "integer"]
+              },
+              "name": {
+                "type": ["null", "string"]
+              },
+              "number": {
+                "type": ["null", "string"]
+              },
+              "category": {
+                "type": ["null", "object"],
+                "properties": {
+                  "id": {
+                    "type": ["null", "integer"]
+                  },
+                  "name": {
+                    "type": ["null", "string"]
+                  }
+                }
+              }
+            }
+          },
+          "line_tax": {
+            "type": ["null", "object"],
+            "properties": {
+              "id": {
+                "type": ["null", "integer"]
+              },
+              "name": {
+                "type": ["null", "string"]
+              },
+              "rate": {
+                "type": ["null", "string"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "account_category": {
+      "type": ["null", "string"]
+    },
+    "person": {
+      "type": ["null", "object"],
+      "properties": {
+        "id": {
+          "type": ["null", "integer"]
+        },
+        "display_name": {
+          "type": ["null", "string"]
+        }
+      }
+    },
+    "witholding_account": {
+      "type": ["null", "object"],
+      "properties": {
+        "id": {
+          "type": ["null", "integer"]
+        },
+        "name": {
+          "type": ["null", "string"]
+        },
+        "number": {
+          "type": ["null", "string"]
+        },
+        "category": {
+          "type": ["null", "object"],
+          "properties": {
+            "id": {
+              "type": ["null", "integer"]
+            },
+            "name": {
+              "type": ["null", "string"]
+            }
+          }
+        }
+      }
+    },
+    "pay_from": {
+      "type": ["null", "object"],
+      "properties": {
+        "id": {
+          "type": ["null", "integer"]
+        },
+        "name": {
+          "type": ["null", "string"]
+        },
+        "number": {
+          "type": ["null", "string"]
+        },
+        "category": {
+          "type": ["null", "object"],
+          "properties": {
+            "id": {
+              "type": ["null", "integer"]
+            },
+            "name": {
+              "type": ["null", "string"]
+            }
+          }
+        }
+      }
+    },
+    "attachments": {
+      "type": ["null", "array"],
+      "items": {
+        "type": "object"
+      }
+    },
+    "tags": {
+      "type": ["null", "string"]
+    },
+    "tags_string": {
+      "type": ["null", "string"]
+    },
+    "is_reconciled": {
+      "type": ["null", "boolean"]
+    },
+    "tax_details": {
+      "type": ["null", "array"],
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": ["null", "string"]
+          },
+          "tax_amount": {
+            "type": ["null", "number"]
+          },
+          "tax_amount_currency_format": {
+            "type": ["null", "string"]
+          }
+        }
+      }
+    },
+    "currency_code": {
+      "type": ["null", "string"]
+    },
+    "currency_rate": {
+      "type": ["null", "number"]
+    }
+  }
+}
