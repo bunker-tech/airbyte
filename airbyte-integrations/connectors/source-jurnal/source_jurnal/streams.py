@@ -105,3 +105,9 @@ class Expenses(JurnalStream):
     resource_path = "expenses"
     response_records_key = "expenses"
     primary_key = "id"
+
+
+class PurchaseInvoices(JurnalStream):
+    resource_path = "purchase_invoices"
+    response_records_key = "purchase_invoices"
+    primary_key = "id"
