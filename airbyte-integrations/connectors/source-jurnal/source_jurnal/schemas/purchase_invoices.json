@@ -9,10 +9,10 @@
       "type": ["null", "string"]
     },
     "selected_po_id": {
-      "type": ["null", "string"]
+      "type": ["null", "string", "integer"]
     },
     "selected_pq_id": {
-      "type": ["null", "string"]
+      "type": ["null", "string", "integer"]
     },
     "token": {
       "type": ["null", "string"]

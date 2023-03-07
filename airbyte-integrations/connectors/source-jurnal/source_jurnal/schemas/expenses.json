@@ -42,7 +42,7 @@
       "type": ["null", "string"]
     },
     "tax_amount": {
-      "type": ["null", "number"]
+      "type": ["null", "string"]
     },
     "deleted_at": {
       "type": ["null", "string"]
@@ -272,7 +272,18 @@
       }
     },
     "tags": {
-      "type": ["null", "string"]
+      "type": ["null", "array"],
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": ["null", "integer"]
+          },
+          "name": {
+            "type": ["null", "string"]
+          }
+        }
+      }
     },
     "tags_string": {
       "type": ["null", "string"]
