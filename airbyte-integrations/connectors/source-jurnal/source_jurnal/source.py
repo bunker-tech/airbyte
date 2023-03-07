@@ -22,4 +22,5 @@ class SourceJurnal(AbstractSource):
             Vendors(config=config),
             Expenses(config=config),
             PurchaseInvoices(config=config),
+            SalesInvoices(config=config),
         ]
